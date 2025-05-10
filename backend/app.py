@@ -22,7 +22,7 @@ collection = db['flask']
 
 app=Flask(__name__) 
 
-@app.route('/submit', methods=['POST'])
+@app.route('/submittodoitem', methods=['POST'])
 def submit():
     res = request.get_json()
     

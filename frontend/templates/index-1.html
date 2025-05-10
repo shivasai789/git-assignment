@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>To-Do Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1em;
+        }
+
+        form {
+            border: 1px solid #0ff;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 300px;
+        }
+
+        input, textarea {
+            padding: 10px;
+            font-size: 1rem;
+            border: none;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #0ff;
+            color: #000;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0cc;
+        }
+    </style>
+</head>
+<body>
+    <h1>To-Do Page</h1>
+    <form action="/add-item" method="POST">
+        <label for="itemName">Item Name</label>
+        <input type="text" name="itemName" id="itemName" placeholder="Enter item name" required>
+
+        <label for="itemDescription">Item Description</label>
+        <textarea name="itemDescription" id="itemDescription" placeholder="Describe the task..." rows="4" required></textarea>
+
+        <button type="submit">Add To-Do</button>
+    </form>
+</body>
+</html>

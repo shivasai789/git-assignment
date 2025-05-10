@@ -12,7 +12,7 @@ BACKEND_URL = "http://127.0.0.1:9000/"
 def home():
     current_time = datetime.now().strftime('%H:%M:%S')
     
-    return render_template('index.html',current_time=current_time)
+    return render_template('index-1.html',current_time=current_time)
 
 @app.route('/api')
 def second():
@@ -32,6 +32,14 @@ def second():
 def name(name):
     s = "Hello "+name+"!"
     return s
+
+@app.route('/submittodoitem',methods=['POST'])
+def submit():
+    data = request.form
+    
+    requests.post(BACKEND_URL + "/submittodoitem",json=data)
+    
+    return "Data submitted successfully!"
 
 @app.route('/submit',methods=['POST'])
 def submit():
