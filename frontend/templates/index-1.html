@@ -53,9 +53,15 @@
 </head>
 <body>
     <h1>To-Do Page</h1>
-    <form action="/add-item" method="POST">
+    <form action="/submittodoitem" method="POST">
         <label for="itemId">Item ID</label>
         <input type="text" name="itemId" id="itemId" placeholder="e.g., 101" required>
+
+        <label for="itemUUID">Item UUID</label>
+        <input type="text" name="itemUUID" id="itemUUID" value="{{ uuid }}" readonly>
+
+        <label for="itemHash">Item Hash</label>
+        <input type="text" name="itemHash" id="itemHash" value="{{ hash }}" readonly>
 
         <label for="itemName">Item Name</label>
         <input type="text" name="itemName" id="itemName" placeholder="Enter item name" required>
