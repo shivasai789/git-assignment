@@ -18,11 +18,13 @@ except Exception as e:
     
 db = client.test 
 
-collection = db['flask']   
+collection = db['flask']  
+
+collection2 = db['todo']
 
 app=Flask(__name__) 
 
-@app.route('/submittodoitem', methods=['POST'])
+@app.route('/submit', methods=['POST'])
 def submit():
     res = request.get_json()
     
@@ -30,9 +32,34 @@ def submit():
     
     return "Data submitted successfully!"
 
+@app.route('/submittodoitem', methods=['POST'])
+def submittodoitem():
+    res = request.get_json()
+    
+    collection2.insert_one(res)
+    
+    return "Data submitted successfully!"
+
 @app.route('/view')
 def view():
     data = collection.find()
+    
+    data = list(data)
+    
+    for item in data:
+        del item['_id']
+    
+    res = {
+        "data": data
+    }
+    
+    return res
+
+@app.route('/viewtodo')
+def viewtodos():
+    data = collection2.find()
+
+    print(data)
     
     data = list(data)
     
