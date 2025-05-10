@@ -16,6 +16,7 @@ def home():
 
 @app.route('/api')
 def second():
+    # this is /api route
     
     name = request.values.get('name') 
     age = request.values.get('age') 
